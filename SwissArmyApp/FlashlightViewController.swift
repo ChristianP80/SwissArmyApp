@@ -21,7 +21,7 @@ class FlashlightViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        flashLightOn = false
+        flashLightOn = true
         
         // Do any additional setup after loading the view.
     }
