@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ron-oq-2OR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Compass-->
+        <scene sceneID="YEu-Td-8V3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="miY-aE-dKQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WTa-5D-YOY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.35490556429999998" green="0.67877593550000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="g63-Gu-h6u"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Compass" image="compass" selectedImage="compass" id="SRS-Rm-TcS"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-4f-S7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1550" y="57"/>
+        </scene>
+        <!--Flashlight-->
+        <scene sceneID="eSg-Gm-3Wy">
+            <objects>
+                <viewController id="ANU-o1-t5r" customClass="FlashlightViewController" customModule="SwissArmyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pZS-12-KHS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LTL-N5-POB">
+                                <rect key="frame" x="14" y="480" width="347" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="flashlightSliderChanged:" destination="ANU-o1-t5r" eventType="valueChanged" id="EHX-C3-Xdf"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.60274698989999997" blue="0.55065238890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="p12-za-ZEd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Flashlight" image="torch" selectedImage="torch" id="Qf0-WH-7Ud"/>
+                    <connections>
+                        <outlet property="flashlightSlider" destination="LTL-N5-POB" id="xv0-Cu-1nA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6HI-yZ-Tlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="489.80509745127438"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="xSd-7M-YoU">
+            <objects>
+                <viewController id="EQE-0t-Qn5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xjX-Pl-361">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.5880496502" green="0.88367509840000003" blue="0.92272883650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="QWq-7J-pot"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm-clock-ringing-symbol" selectedImage="alarm-clock-ringing-symbol" id="qGa-vi-oA3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0C-xe-18V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="-346"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mzD-Uc-T05">
+            <objects>
+                <tabBarController id="ron-oq-2OR" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="zzy-76-R7u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EQE-0t-Qn5" kind="relationship" relationship="viewControllers" id="Gar-ne-V9k"/>
+                        <segue destination="miY-aE-dKQ" kind="relationship" relationship="viewControllers" id="avR-Bh-4dR"/>
+                        <segue destination="ANU-o1-t5r" kind="relationship" relationship="viewControllers" id="Pgy-xS-dW9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOa-rQ-pIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="58"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm-clock-ringing-symbol" width="25" height="25"/>
+        <image name="compass" width="25" height="25"/>
+        <image name="torch" width="25" height="25"/>
+    </resources>
 </document>

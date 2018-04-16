@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D3BD5892083F38E0036FA92 /* FlashlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */; };
 		3DEBC06E207EA1A30057F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEBC06D207EA1A30057F57F /* AppDelegate.swift */; };
-		3DEBC070207EA1A30057F57F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEBC06F207EA1A30057F57F /* ViewController.swift */; };
 		3DEBC073207EA1A30057F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEBC071207EA1A30057F57F /* Main.storyboard */; };
 		3DEBC075207EA1A30057F57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DEBC074207EA1A30057F57F /* Assets.xcassets */; };
 		3DEBC078207EA1A30057F57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEBC076207EA1A30057F57F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightViewController.swift; sourceTree = "<group>"; };
 		3DEBC06A207EA1A30057F57F /* SwissArmyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwissArmyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEBC06D207EA1A30057F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DEBC06F207EA1A30057F57F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3DEBC072207EA1A30057F57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DEBC074207EA1A30057F57F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DEBC077207EA1A30057F57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,11 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				3DEBC06D207EA1A30057F57F /* AppDelegate.swift */,
-				3DEBC06F207EA1A30057F57F /* ViewController.swift */,
 				3DEBC071207EA1A30057F57F /* Main.storyboard */,
 				3DEBC074207EA1A30057F57F /* Assets.xcassets */,
 				3DEBC076207EA1A30057F57F /* LaunchScreen.storyboard */,
 				3DEBC079207EA1A30057F57F /* Info.plist */,
+				3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */,
 			);
 			path = SwissArmyApp;
 			sourceTree = "<group>";
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DEBC070207EA1A30057F57F /* ViewController.swift in Sources */,
+				3D3BD5892083F38E0036FA92 /* FlashlightViewController.swift in Sources */,
 				3DEBC06E207EA1A30057F57F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
