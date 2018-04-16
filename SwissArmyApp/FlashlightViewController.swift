@@ -36,7 +36,7 @@ class FlashlightViewController: UIViewController {
         
         currentValue = Float(sender.value)
         
-        if (currentValue > 0.01) {
+        if (currentValue >= 0.1) {
             flashLightOn = true
             let twoDecimalValue = (String(format: "%.1f", currentValue))
             print(twoDecimalValue)
