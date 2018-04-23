@@ -12,6 +12,7 @@ import AVFoundation
 class FlashlightViewController: UIViewController {
 
     @IBOutlet weak var flashlightSlider: UISlider!
+    @IBOutlet weak var torchOnOffSwitch: UISwitch!
     
     var device = AVCaptureDevice.default(for: AVMediaType.video)
     var flashLightOn : Bool = false
@@ -20,6 +21,7 @@ class FlashlightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        torchOnOffSwitch.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
 
         flashLightOn = true
         
@@ -31,6 +33,17 @@ class FlashlightViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func torchOnOffChanged(_ sender: UISwitch) {
+        
+        if torchOnOffSwitch.isOn == false {
+            flashLightOn = false
+            setFlashStrength(lightStrength: 0.0)
+        } else {
+            flashLightOn = true
+            setFlashStrength(lightStrength: 1)
+        }
+        
+    }
     
     @IBAction func flashlightSliderChanged(_ sender: UISlider) {
         
