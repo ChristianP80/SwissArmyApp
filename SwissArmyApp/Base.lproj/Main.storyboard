@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-4f-S7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="57"/>
+            <point key="canvasLocation" x="2488.8000000000002" y="56.221889055472268"/>
         </scene>
         <!--Flashlight-->
         <scene sceneID="eSg-Gm-3Wy">
@@ -62,49 +62,89 @@
             </objects>
             <point key="canvasLocation" x="645.60000000000002" y="489.80509745127438"/>
         </scene>
-        <!--Alarm-->
+        <!--Alarms View Controller-->
         <scene sceneID="xSd-7M-YoU">
             <objects>
-                <viewController id="EQE-0t-Qn5" customClass="AlarmViewController" customModule="SwissArmyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EQE-0t-Qn5" customClass="AlarmsViewController" customModule="SwissArmyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xjX-Pl-361">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zMw-4S-0Jd">
-                                <rect key="frame" x="0.0" y="372" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="545575430.76239598">
-                                    <!--2018-04-16 12:43:50 +0000-->
-                                </date>
-                                <locale key="locale" localeIdentifier="sv_SE"/>
-                                <connections>
-                                    <action selector="didPickDateAndTime:" destination="EQE-0t-Qn5" eventType="valueChanged" id="8Vu-C6-hT5"/>
-                                </connections>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWL-yh-xvM">
-                                <rect key="frame" x="16" y="542" width="343" height="76"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yRp-a9-Qmj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Add Alarm">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="EQE-0t-Qn5" eventType="touchUpInside" id="sly-Rw-SdN"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="0.58850038051605225" green="0.88369995355606079" blue="0.92077004909515381" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.58850038049999998" green="0.88369995359999998" blue="0.92077004910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="alarmCell" rowHeight="83" id="QsT-ln-lUh">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QsT-ln-lUh" id="lhX-E8-V4N">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.5880496502" green="0.88367509840000003" blue="0.92272883650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="QWq-7J-pot"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm-clock-ringing-symbol" selectedImage="alarm-clock-ringing-symbol" id="qGa-vi-oA3"/>
+                    <navigationItem key="navigationItem" id="2ea-2g-Wcf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ttq-lC-xCX">
+                            <connections>
+                                <segue destination="lLB-54-g3I" kind="show" identifier="addAlarm" id="sP7-Eq-QdZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="DateAndTimePicker" destination="zMw-4S-0Jd" id="kCn-q4-pxI"/>
-                        <outlet property="addAlarmButton" destination="nWL-yh-xvM" id="yzp-pC-GyW"/>
+                        <outlet property="alarmsTableView" destination="yRp-a9-Qmj" id="XbK-Ob-oU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0C-xe-18V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="645.60000000000002" y="-346.77661169415296"/>
+            <point key="canvasLocation" x="1741.5999999999999" y="-723.68815592203907"/>
+        </scene>
+        <!--Add Alarm View Controller-->
+        <scene sceneID="RTm-86-m2T">
+            <objects>
+                <viewController id="lLB-54-g3I" customClass="AddAlarmViewController" customModule="SwissArmyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GPp-AS-ids">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="c5j-nf-g3B">
+                                <rect key="frame" x="0.0" y="314" width="375" height="209"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="546554354.23798501">
+                                    <!--2018-04-27 20:39:14 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="sv"/>
+                                <connections>
+                                    <action selector="datePicked:" destination="lLB-54-g3I" eventType="valueChanged" id="dOB-W6-W72"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-6k-JnC">
+                                <rect key="frame" x="116" y="531" width="142" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Alarm"/>
+                                <connections>
+                                    <action selector="addAlarmButton:" destination="lLB-54-g3I" eventType="touchUpInside" id="NfT-Xt-CmG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="61L-c1-Z4H"/>
+                    </view>
+                    <connections>
+                        <outlet property="addAlarmButton" destination="qu2-6k-JnC" id="C0M-hr-OJ4"/>
+                        <outlet property="timePicker" destination="c5j-nf-g3B" id="X5d-6N-eL5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IlB-px-Ir8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728.8000000000002" y="-724.58770614692662"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mzD-Uc-T05">
@@ -117,7 +157,7 @@
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="EQE-0t-Qn5" kind="relationship" relationship="viewControllers" id="Gar-ne-V9k"/>
+                        <segue destination="O60-Ij-p5f" kind="relationship" relationship="viewControllers" id="Gar-ne-V9k"/>
                         <segue destination="miY-aE-dKQ" kind="relationship" relationship="viewControllers" id="avR-Bh-4dR"/>
                         <segue destination="ANU-o1-t5r" kind="relationship" relationship="viewControllers" id="Pgy-xS-dW9"/>
                     </connections>
@@ -125,6 +165,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOa-rQ-pIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-480" y="58"/>
+        </scene>
+        <!--Alarm-->
+        <scene sceneID="Did-gm-17Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O60-Ij-p5f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm-clock-ringing-symbol" selectedImage="alarm-clock-ringing-symbol" id="qGa-vi-oA3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U2i-gx-HCp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EQE-0t-Qn5" kind="relationship" relationship="rootViewController" id="9yV-sp-shL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APm-Cc-MkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="-346.77661169415296"/>
         </scene>
     </scenes>
     <resources>

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3D3BD5892083F38E0036FA92 /* FlashlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */; };
-		3D3BD58B2084D28C0036FA92 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD58A2084D28C0036FA92 /* AlarmViewController.swift */; };
+		3D3BD58B2084D28C0036FA92 /* AlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */; };
 		3D65463320894629003498DF /* Siren_Noise-KevanGC-1337458893.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D65463220894629003498DF /* Siren_Noise-KevanGC-1337458893.wav */; };
 		3D654637208DB5E8003498DF /* wakeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D654636208DB5E8003498DF /* wakeup.png */; };
+		3D65467D2093C1BD003498DF /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65467C2093C1BC003498DF /* AddAlarmViewController.swift */; };
+		3D6546832094FA0E003498DF /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6546822094FA0E003498DF /* Alarm.swift */; };
 		3DEBC06E207EA1A30057F57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEBC06D207EA1A30057F57F /* AppDelegate.swift */; };
 		3DEBC073207EA1A30057F57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DEBC071207EA1A30057F57F /* Main.storyboard */; };
 		3DEBC075207EA1A30057F57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DEBC074207EA1A30057F57F /* Assets.xcassets */; };
@@ -19,9 +21,11 @@
 
 /* Begin PBXFileReference section */
 		3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightViewController.swift; sourceTree = "<group>"; };
-		3D3BD58A2084D28C0036FA92 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsViewController.swift; sourceTree = "<group>"; };
 		3D65463220894629003498DF /* Siren_Noise-KevanGC-1337458893.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Siren_Noise-KevanGC-1337458893.wav"; sourceTree = "<group>"; };
 		3D654636208DB5E8003498DF /* wakeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wakeup.png; sourceTree = "<group>"; };
+		3D65467C2093C1BC003498DF /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
+		3D6546822094FA0E003498DF /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		3DEBC06A207EA1A30057F57F /* SwissArmyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwissArmyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DEBC06D207EA1A30057F57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DEBC072207EA1A30057F57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,13 +64,15 @@
 		3DEBC06C207EA1A30057F57F /* SwissArmyApp */ = {
 			isa = PBXGroup;
 			children = (
-				3DEBC06D207EA1A30057F57F /* AppDelegate.swift */,
 				3DEBC071207EA1A30057F57F /* Main.storyboard */,
+				3DEBC06D207EA1A30057F57F /* AppDelegate.swift */,
+				3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */,
+				3D6546822094FA0E003498DF /* Alarm.swift */,
+				3D65467C2093C1BC003498DF /* AddAlarmViewController.swift */,
+				3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */,
 				3DEBC074207EA1A30057F57F /* Assets.xcassets */,
 				3DEBC076207EA1A30057F57F /* LaunchScreen.storyboard */,
 				3DEBC079207EA1A30057F57F /* Info.plist */,
-				3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */,
-				3D3BD58A2084D28C0036FA92 /* AlarmViewController.swift */,
 				3D65463220894629003498DF /* Siren_Noise-KevanGC-1337458893.wav */,
 				3D654636208DB5E8003498DF /* wakeup.png */,
 			);
@@ -147,9 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D65467D2093C1BD003498DF /* AddAlarmViewController.swift in Sources */,
 				3D3BD5892083F38E0036FA92 /* FlashlightViewController.swift in Sources */,
+				3D6546832094FA0E003498DF /* Alarm.swift in Sources */,
 				3DEBC06E207EA1A30057F57F /* AppDelegate.swift in Sources */,
-				3D3BD58B2084D28C0036FA92 /* AlarmViewController.swift in Sources */,
+				3D3BD58B2084D28C0036FA92 /* AlarmsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
