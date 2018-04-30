@@ -19,6 +19,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.distanceFilter = 1
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingHeading()
     }
 
@@ -30,16 +32,5 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         let rotation: Double = newHeading.magneticHeading * 3.14159 / 180;
         self.compassImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-rotation))
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
