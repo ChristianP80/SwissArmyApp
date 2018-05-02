@@ -24,13 +24,10 @@ class FlashlightViewController: UIViewController {
         torchOnOffSwitch.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)
 
         flashLightOn = true
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func torchOnOffChanged(_ sender: UISwitch) {
@@ -38,11 +35,12 @@ class FlashlightViewController: UIViewController {
         if torchOnOffSwitch.isOn == false {
             flashLightOn = false
             setFlashStrength(lightStrength: 0.0)
+            flashlightSlider.value = 0
         } else {
             flashLightOn = true
             setFlashStrength(lightStrength: 1)
+            flashlightSlider.value = 1
         }
-        
     }
     
     @IBAction func flashlightSliderChanged(_ sender: UISlider) {
@@ -51,6 +49,7 @@ class FlashlightViewController: UIViewController {
         
         if (currentValue >= 0.1) {
             flashLightOn = true
+            torchOnOffSwitch.isOn = true
             let twoDecimalValue = (String(format: "%.1f", currentValue))
             print(twoDecimalValue)
             roundedValue = (twoDecimalValue as NSString).floatValue
@@ -60,10 +59,8 @@ class FlashlightViewController: UIViewController {
         } else {
             flashLightOn = false
             setFlashStrength(lightStrength: 0.0)
+            torchOnOffSwitch.isOn = false
         }
-        
-
-        
     }
     
     func setFlashStrength(lightStrength : Float) {
@@ -82,7 +79,7 @@ class FlashlightViewController: UIViewController {
                     }
                 } else {
                     do {
-                        print("krashar här")
+                        print("crash!!!")
                         try device?.lockForConfiguration()
                         device?.torchMode = .off
                         device?.unlockForConfiguration()
@@ -93,14 +90,10 @@ class FlashlightViewController: UIViewController {
                     }
                 }
             } else {
-                
-                //noFlashAvailable()
+                print("No flash/torch available")
             }
         } else {
-            //noFlashAvailable()
+            print("No flash/torch available")
         }
-
     }
-    
-    
 }
