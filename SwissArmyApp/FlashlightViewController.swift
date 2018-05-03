@@ -90,10 +90,18 @@ class FlashlightViewController: UIViewController {
                     }
                 }
             } else {
-                print("No flash/torch available")
+                flashNotSupported()
             }
         } else {
-            print("No flash/torch available")
+            flashNotSupported()
         }
+    }
+    
+    func flashNotSupported() {
+        
+        let alert = UIAlertController(title: "Unsupported Device", message: "Torch/flash is not supported on this device!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK!", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }

@@ -45,6 +45,15 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["alarmNotification\(alarms[indexPath.row].alarmIdentifier)"])
+            alarms.remove(at: indexPath.row)
+            alarmsTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addAlarm" {
             let destinationVC = segue.destination as! AddAlarmViewController
@@ -86,7 +95,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-        completionHandler([.badge, .alert, .sound])
+        completionHandler([.alert, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -99,6 +108,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if response.actionIdentifier == "Snooze2" {
             let newDate = Date(timeInterval: 600, since: Date())
             print("Nytt alarm satt till \(newDate)")
+             //let alarm = response.notification.request.content.userInfo["theAlarm"]
             scheduleNotification(at: newDate, requestIdentifier: alarms[0].alarmIdentifier)
         }
         if response.actionIdentifier == "Snooze3" {

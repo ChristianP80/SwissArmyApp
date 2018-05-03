@@ -16,12 +16,15 @@ class AddAlarmViewController: UIViewController {
 
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var addAlarmButton: UIButton!
+    @IBOutlet weak var alarmTitel: UITextField!
+    @IBOutlet weak var alarmBody: UITextField!
     
     var alarm = Alarm()
     var delegate : addAlarmDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +38,10 @@ class AddAlarmViewController: UIViewController {
         print("pickers time and date: \(alarm.dateAndTimeOfAlarm)")
         
     }
+    
+//    override func touchesBegan(_: Set<UITouch>, with: UIEvent?){
+//        alarmTitel.resignFirstResponder()
+//    }
     
     @IBAction func addAlarmButton(_ sender: UIButton) {
         print("Selected date: \(alarm.dateAndTimeOfAlarm)")
@@ -53,6 +60,7 @@ class AddAlarmViewController: UIViewController {
             alarm.dateAndTimeOfAlarm = newTime!
             print("picker value less than current date, new date \(alarm.dateAndTimeOfAlarm)")
         }
+//        alarm.title = alarmTitel.text
         delegate?.addAlarm(alarm: alarm)
         navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)

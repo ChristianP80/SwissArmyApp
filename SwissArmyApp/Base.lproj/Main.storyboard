@@ -190,12 +190,30 @@
                                     <action selector="addAlarmButton:" destination="lLB-54-g3I" eventType="touchUpInside" id="NfT-Xt-CmG"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QK8-OP-bnP">
+                                <rect key="frame" x="16" y="276" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81394290889999998" green="0.81974643229999999" blue="0.83715700270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dp-Mz-2Kq">
+                                <rect key="frame" x="16" y="245" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.81394290889999998" green="0.81974643229999999" blue="0.83715700270000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="61L-c1-Z4H"/>
                     </view>
                     <connections>
                         <outlet property="addAlarmButton" destination="qu2-6k-JnC" id="C0M-hr-OJ4"/>
+                        <outlet property="alarmBody" destination="QK8-OP-bnP" id="3vC-s5-9YG"/>
+                        <outlet property="alarmTitel" destination="0dp-Mz-2Kq" id="1dp-uj-2y5"/>
                         <outlet property="timePicker" destination="c5j-nf-g3B" id="X5d-6N-eL5"/>
                     </connections>
                 </viewController>

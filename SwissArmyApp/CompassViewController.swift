@@ -71,6 +71,14 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingHeading()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        locationManager.startUpdatingHeading()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -80,7 +88,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             let rotation: Double = newHeading.magneticHeading * 3.14159 / 180;
             let latitude = (self.locationManager.location?.coordinate.latitude)!
             let longitude = (self.locationManager.location?.coordinate.longitude)!
-            let dms = self.coordinateToDMS(latitude: latitude, longitude: longitude)
+            let dms = self.coordinatesToDMS(latitude: latitude, longitude: longitude)
             let altitude = (self.locationManager.location?.altitude)!
             self.degreeLabel.text = "\(Int(newHeading.magneticHeading))°"
             self.latitudeLabel.text = "\(dms.latitude)"
@@ -101,7 +109,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
     
-    func coordinateToDMS(latitude: Double, longitude: Double) -> (latitude: String, longitude: String) {
+    func coordinatesToDMS(latitude: Double, longitude: Double) -> (latitude: String, longitude: String) {
         let latDegrees = abs(Int(latitude))
         let latMinutes = abs(Int((latitude * 3600).truncatingRemainder(dividingBy: 3600) / 60))
         let latSeconds = Double(abs((latitude * 3600).truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60)))
@@ -110,8 +118,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         let lonMinutes = abs(Int((longitude * 3600).truncatingRemainder(dividingBy: 3600) / 60))
         let lonSeconds = Double(abs((longitude * 3600).truncatingRemainder(dividingBy: 3600).truncatingRemainder(dividingBy: 60) ))
         
-        return (String(format:"%d° %d' %.4f\" %@", latDegrees, latMinutes, latSeconds, latitude >= 0 ? "N" : "S"),
-                String(format:"%d° %d' %.4f\" %@", lonDegrees, lonMinutes, lonSeconds, longitude >= 0 ? "E" : "W"))
+        return (String(format:"%d° %d' %.2f\" %@", latDegrees, latMinutes, latSeconds, latitude >= 0 ? "N" : "S"),
+                String(format:"%d° %d' %.2f\" %@", lonDegrees, lonMinutes, lonSeconds, longitude >= 0 ? "E" : "W"))
     }
 }
 

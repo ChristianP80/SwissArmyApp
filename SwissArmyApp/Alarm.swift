@@ -12,5 +12,7 @@ class Alarm {
     
     var dateAndTimeOfAlarm = Date()
     var alarmIdentifier : Int = 0
+//    var title : String?
+//    var body : String?
     
 }
