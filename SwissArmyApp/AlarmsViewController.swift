@@ -22,6 +22,11 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alarmsTableView.dataSource = self
         alarmsTableView.reloadData()
         UNUserNotificationCenter.current().delegate = self
+        animateTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        animateTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,16 +38,24 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alarmsTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return alarms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = alarmsTableView.dequeueReusableCell(withIdentifier: "alarmCell")
-        cell?.textLabel?.text = "\(alarms[indexPath.row].dateAndTimeOfAlarm)"
+        let cell = alarmsTableView.dequeueReusableCell(withIdentifier: "alarmCell") as! AlarmTableViewCell
+        cell.cellView.layer.cornerRadius = (cell.frame.height) / 3
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let dateToTime = dateFormatter.string(from: alarms[indexPath.row].dateAndTimeOfAlarm)
+        cell.cellLabel.text = "\(dateToTime)"
         alarms[indexPath.row].alarmIdentifier = indexPath.row
         scheduleNotification(at: alarms[indexPath.row].dateAndTimeOfAlarm, requestIdentifier: alarms[indexPath.row].alarmIdentifier)
-        return cell!
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -119,10 +132,21 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         completionHandler()
     }
     
-    
-
-    
-
-
-
+    func animateTable(){
+        alarmsTableView.reloadData()
+        let cells = alarmsTableView.visibleCells
+        
+        let tableViewHeight = alarmsTableView.bounds.size.height
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        }
+        
+        var delayCounter = 0
+        
+        for cell in cells {
+            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05,usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseIn, .curveEaseOut], animations: {cell.transform = CGAffineTransform.identity}, completion: nil)
+            delayCounter += 1
+        }
+    }
 }

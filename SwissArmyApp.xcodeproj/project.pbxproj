@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1FF57B209DC59A00332B53 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1FF57A209DC59A00332B53 /* AlarmTableViewCell.swift */; };
 		3D3BD5892083F38E0036FA92 /* FlashlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */; };
 		3D3BD58B2084D28C0036FA92 /* AlarmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */; };
 		3D65463320894629003498DF /* Siren_Noise-KevanGC-1337458893.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3D65463220894629003498DF /* Siren_Noise-KevanGC-1337458893.wav */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1FF57A209DC59A00332B53 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightViewController.swift; sourceTree = "<group>"; };
 		3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsViewController.swift; sourceTree = "<group>"; };
 		3D65463220894629003498DF /* Siren_Noise-KevanGC-1337458893.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Siren_Noise-KevanGC-1337458893.wav"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				3DEBC06D207EA1A30057F57F /* AppDelegate.swift */,
 				3D3BD5882083F38E0036FA92 /* FlashlightViewController.swift */,
 				3D6546822094FA0E003498DF /* Alarm.swift */,
+				3D1FF57A209DC59A00332B53 /* AlarmTableViewCell.swift */,
 				3D65467C2093C1BC003498DF /* AddAlarmViewController.swift */,
 				3D3BD58A2084D28C0036FA92 /* AlarmsViewController.swift */,
 				3D6546AA20972075003498DF /* CompassViewController.swift */,
@@ -115,6 +118,11 @@
 					3DEBC069207EA1A30057F57F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -161,6 +169,7 @@
 				3D6546832094FA0E003498DF /* Alarm.swift in Sources */,
 				3D6546AB20972075003498DF /* CompassViewController.swift in Sources */,
 				3DEBC06E207EA1A30057F57F /* AppDelegate.swift in Sources */,
+				3D1FF57B209DC59A00332B53 /* AlarmTableViewCell.swift in Sources */,
 				3D3BD58B2084D28C0036FA92 /* AlarmsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
