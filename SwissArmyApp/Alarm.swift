@@ -8,11 +8,9 @@
 
 import Foundation
 
-class Alarm {
+class Alarm: Codable {
     
     var dateAndTimeOfAlarm = Date()
     var alarmIdentifier : Int = 0
-//    var title : String?
-//    var body : String?
     
 }

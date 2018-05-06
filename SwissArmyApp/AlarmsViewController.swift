@@ -15,6 +15,7 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var alarmsTableView: UITableView!
     
     var alarms : [Alarm] = []
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,13 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alarmsTableView.dataSource = self
         alarmsTableView.reloadData()
         UNUserNotificationCenter.current().delegate = self
-        animateTable()
+        loadAlarms()
+        animateAlarmTable()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        animateTable()
+        animateAlarmTable()
+        loadAlarms()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +38,22 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func addAlarm(alarm: Alarm) {
         alarms.append(alarm)
+        saveAlarms()
         alarmsTableView.reloadData()
+    }
+    
+    func saveAlarms() {
+        try! defaults.set(PropertyListEncoder().encode(alarms), forKey: "savedAlarms")
+    }
+    
+    func loadAlarms() {
+
+        if let data = defaults.object(forKey: "savedAlarms") as? Data {
+            if let alarmsList = try? PropertyListDecoder().decode([Alarm].self, from: data){
+                alarms = alarmsList
+            }
+        }
+        print("View did load:")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,21 +150,25 @@ class AlarmsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         completionHandler()
     }
     
-    func animateTable(){
+    func animateAlarmTable() {
         alarmsTableView.reloadData()
+        
         let cells = alarmsTableView.visibleCells
+        let tableHeight: CGFloat = alarmsTableView.bounds.size.height
         
-        let tableViewHeight = alarmsTableView.bounds.size.height
-        
-        for cell in cells {
-            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
         }
         
-        var delayCounter = 0
+        var index = 0
         
         for cell in cells {
-            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05,usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseIn, .curveEaseOut], animations: {cell.transform = CGAffineTransform.identity}, completion: nil)
-            delayCounter += 1
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [.curveEaseIn, .curveEaseOut], animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            index += 1
         }
     }
 }

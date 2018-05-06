@@ -18,7 +18,7 @@ class AddAlarmViewController: UIViewController {
     @IBOutlet weak var addAlarmButton: UIButton!
     @IBOutlet weak var alarmTitel: UITextField!
     @IBOutlet weak var alarmBody: UITextField!
-    
+  
     var alarm = Alarm()
     var delegate : addAlarmDelegate?
     
@@ -46,7 +46,7 @@ class AddAlarmViewController: UIViewController {
     @IBAction func addAlarmButton(_ sender: UIButton) {
         print("Selected date: \(alarm.dateAndTimeOfAlarm)")
         let date = Date()
-        if alarm.dateAndTimeOfAlarm < date {
+        if (alarm.dateAndTimeOfAlarm) < date {
             let monthsToAdd = 0
             let daysToAdd = 1
             let yearsToAdd = 0
@@ -56,7 +56,7 @@ class AddAlarmViewController: UIViewController {
             dateComponent.day = daysToAdd
             dateComponent.year = yearsToAdd
             
-            let newTime = Calendar.current.date(byAdding: dateComponent, to: alarm.dateAndTimeOfAlarm)
+            let newTime = Calendar.current.date(byAdding: dateComponent, to: (alarm.dateAndTimeOfAlarm))
             alarm.dateAndTimeOfAlarm = newTime!
             print("picker value less than current date, new date \(alarm.dateAndTimeOfAlarm)")
         }
